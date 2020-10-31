@@ -11,9 +11,9 @@ Programa creado para poner a prueba los conocimientos
 adquiridos durante la clase
 '''
 
-__author__ = "Inove Coding School"
-__email__ = "alumnos@inove.com.ar"
-__version__ = "1.2"
+__author__ = "Patricio Henderson"
+__email__ = "patricio.henderson.v@gmail.com"
+__version__ = "1.3"
 
 condicion = False
 
@@ -27,8 +27,9 @@ def ej1():
     # Además, complete la línea de código necesaria para que
     # el valor de "x" incremente "1" en cada iteración
 
-    while condicion:    # reemplace "condicion" por lo que crea necesario
+    while x < 6:    # reemplace "condicion" por lo que crea necesario
         print("Valor de x =", x)
+        x = x + 1
         # Coloque la línea de código para que "X" incremente "1"
 
     x = 5
@@ -37,8 +38,9 @@ def ej1():
     # Además, complete la línea de código necesaria para que
     # el valor de "x" decremente "1" en cada iteración
 
-    while condicion:    # reemplace "condicion" por lo que crea necesario
+    while x >= 0:    # reemplace "condicion" por lo que crea necesario
         print("Valor de x =", x)
+        x = x - 1
         # Coloque la línea de código para que "X" decremente "1"
 
 
@@ -49,15 +51,22 @@ def ej2():
     # para imprimir en pantalla todos los colores
     colores = ['rojo', 'naranja', 'verde', 'azul']
 
+    for i in colores:
+        print (i)
+
     # Itere el "for" utilizando la lista como parámero
     # y utilizar como elemento del "for" cada color
     # for color ...
+
+    for color in colores:
+        print (color)
 
     # Itere el "for" utilizando el tamaño de la lista
     # como parámetro y utilizar el índice para acceder a
     # los elementos de la lista
     # for i ...
-
+    for i in range(len(colores)):
+        print (colores[i])
 
 def ej3():
     # Ejemplos con bucles "for"
@@ -68,7 +77,24 @@ def ej3():
     numeros = [1, 5, -1, 6, 10, 2, -5]
     suma = 0   # Variable ya inicializada, la suma arranca en cero
 
+    for i in range(len(numeros)):
 
+        numero = numeros[i]
+        numero_2 = 0 + suma
+        suma += numero
+
+        print("El resultado de sumar " ,numero , "+", numero_2 , "es ", suma)
+       
+        #print("El resultado de la suma ", i + 1 , "es {}" .format(suma))
+    
+    x = 0
+    for i in numeros:
+        
+        x += 1
+        suma += i
+       
+        print("El resultado de la suma número ", x , "es {} " .format(suma))
+        
 def ej4():
     # Ejercicios con bucles "while"
 
@@ -79,13 +105,25 @@ def ej4():
     # una condición compuesta (utilice el operador "and" o "or" según corresponda)
     # En cada iteracion del bucle debe incrementar el valor de "x" en "2"
     # e imprimir en pantalla el resultado de X (antes de incrementar) con print
-
+    
+    while  x < 10 and x != 6 :
+        print(x)
+        x +=  2
+        
     # Realice el mismo bucle "while" pero en vez de estar formado por una condición
     # compuesta, que el "while" siga iterando mientras <x sea menos a 10>, y dentro del
     # "while" consultar si <x es igual a 6>, y en ese caso realizar una interrupción del bucle
     # En cada iteracion del bucle debe incrementar el valor de "x" en "2"
     # e imprimir en pantalla el resultado de X (antes de incrementar) con print
 
+    while x < 10 :
+        
+        if x == 6 :
+            break
+        
+        print(x, "ej 2")
+
+        x += 2
 
 def ej5():
     # Ejercicio de secuencias numéricas
@@ -96,10 +134,26 @@ def ej5():
     # Tener en cuenta que "range" no incluye el número de "fin" en su secuencia,
     # sino que va hasta el anterior
 
-    inicio = int(input('Ingrese el primero número de la secuencia\n'))
-    # fin....
+    inicio = int(input('Ingrese el primer número de la secuencia\n'))
 
-    # for ... in range(....)
+    fin = int(input("Ingrese el segundo número de la secuencia\n"))
+    
+    x = 0
+    suma_1 = 0
+    for numero in range (inicio, fin + 1) :
+        x = 0 + numero
+        suma_1 += numero
+    
+    print(suma_1) 
+    suma_2 = 0
+    for i in range (inicio, fin + 1) :
+        suma_2 += i
+
+    print(suma_2) 
+
+    #for i in range(len(secuencia)):
+        
+
 
     # Imprimir el valor de la sumatoria
 
@@ -113,11 +167,21 @@ def ej6():
     # Tener en cuenta que "range" no incluye el número de "fin" en su secuencia,
     # sino que va hasta el anterior
 
-    inicio = int(input('Ingrese el primero número de la secuencia\n'))
-    # fin....
+    inicio = int(input('Ingrese el primer número de la secuencia\n'))
+    fin = int(input("Ingresar el segundo número de la secuencia \n"))
 
     cantidad_numeros_positivos = 0  # Inicializo el contador en 0
-    #cantidad_numeros_negativos
+    cantidad_numero_negativos = 0 
+    
+    for i in range (inicio, fin + 1):
+        
+        if i > 0 :
+            cantidad_numeros_positivos += 1
+        
+        if i < 0 :
+            cantidad_numero_negativos += 1
+    print("Números negativos = ", cantidad_numero_negativos,
+    "numeros positivos = " , cantidad_numeros_positivos )
 
     # for ... in range(....)
 
@@ -126,7 +190,7 @@ def ej6():
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
-    ej1()
+    #ej1()
     #ej2()
     #ej3()
     #ej4()

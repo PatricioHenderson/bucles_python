@@ -11,9 +11,9 @@ Programa creado para que practiquen los conocimietos
 adquiridos durante la semana
 '''
 
-__author__ = "Inove Coding School"
-__email__ = "alumnos@inove.com.ar"
-__version__ = "1.1"
+__author__ = "Patricio Henderson"
+__email__ = "patricio.henderson.v@gmail.com"
+__version__ = "1.2"
 
 # Variable global utilizada para el ejercicio de nota
 notas = [70, 82, -1, 65, 55, 67, 87, 92, -1]
@@ -34,10 +34,19 @@ def ej1():
     Tener en cuenta que "range" no incluye el número de "fin" en su secuencia,
     sino que va hasta el anterior
     '''
+    
+    inicio = int(input("Introducir primer numero: "))
+    fin = int(input("Introducir segundo numero: "))
 
-    # inicio = ....
-    # fin = ....
+    sumatoria = 0
+    contador = 0
+    for i in range(inicio,fin + 1):
+        contador += 1
+        sumatoria += i
 
+    promedio = sumatoria / contador
+    print ("Cantidad numeros : " , contador , "Sumatoria : ", sumatoria, 
+            "Promedio : ", promedio)
     # cantidad_numeros ....
     # sumatoria ....
 
@@ -62,6 +71,76 @@ def ej2():
     Se debe debe imprimir un cartel de error si el operador ingresado no es
     alguno de lo soportados o no es la palabra "FIN"
     '''
+    
+    numero_1 = float(input("Introducir primer numero: "))
+    
+    numero_2 = float(input("Introducir segundo numero: "))
+    
+    funcion = str(input("Introducir simbolo operación a realizar "))
+    
+    while funcion != "FIN":
+
+        if funcion == "+" :
+
+            print ("el resultado es : " , numero_1 + numero_2)
+            
+            numero_1 = float(input("Introducir primer numero: "))
+    
+            numero_2 = float(input("Introducir segundo numero: "))
+    
+            funcion = str(input("Introducir simbolo operación a realizar "))
+
+        elif funcion == "-" :
+
+            print ("el resultado es : ", numero_1 - numero_2)
+
+            numero_1 = float(input("Introducir primer numero: "))
+    
+            numero_2 = float(input("Introducir segundo numero: "))
+    
+            funcion = str(input("Introducir simbolo operación a realizar "))
+
+        elif funcion == "*" :
+
+            print ("el resultado es : ", numero_1 * numero_2)
+
+            numero_1 = float(input("Introducir primer numero: "))
+    
+            numero_2 = float(input("Introducir segundo numero: "))
+    
+            funcion = str(input("Introducir simbolo operación a realizar "))
+
+        elif funcion == "/" :
+
+            print ("el resultado es : ", numero_1 / numero_2)
+
+            numero_1 = float(input("Introducir primer numero: "))
+    
+            numero_2 = float(input("Introducir segundo numero: "))
+    
+            funcion = str(input("Introducir simbolo operación a realizar "))
+    
+        elif funcion == "**" :
+
+            print ("el resultado es : ", numero_1 ** numero_2)
+
+            numero_1 = float(input("Introducir primer numero: "))
+    
+            numero_2 = float(input("Introducir segundo numero: "))
+    
+            funcion = str(input("Introducir simbolo operación a realizar "))
+         
+        else :
+
+            print ("Indrodujo una transacción no soportada")
+            break
+
+
+    if funcion == "FIN":
+        print("Programa terminado.\n")
+        
+        
+   
 
 
 def ej3():
@@ -73,7 +152,7 @@ def ej3():
     copielo a este ejercicio y modifíquelo para cumplir
     el siguiente requerimiento
 
-    Las notas del estudinte se encuentran almacenadas en una
+    Las notas del estudiante se encuentran almacenadas en una
     lista llamada "notas" que ya hemos definido al comienzo del archivo
 
     Debe caluclar el promedio de todas las notas y luego transformar
@@ -95,15 +174,50 @@ def ej3():
 
     # Realice aquí el bucle para recorrer todas las notas
     # y cacular la sumatoria
+    for i in notas:
+
+        if i < 0 :
+            cantidad_ausentes += 1 
+            
+
+        if i > 0 :
+            sumatoria += i
+            cantidad_notas +=1
+            
+    
 
     # Terminado el bucle calcule el promedio como
     # promedio = sumatoria / cantidad_notas
-
+    promedio = sumatoria / cantidad_notas
     # Utilice la nota promedio calculada y transformela
     # a calificación con letras, imprima en pantalla el resultado
+    puntaje = promedio
 
+    if 100 < puntaje >= 90:
+        
+        print ("A")
+
+    elif  90 > puntaje >= 80 :
+
+        print("B")
+
+    elif  80 > puntaje >= 70 :
+        
+        print ("C")
+    
+    elif 70 > puntaje >= 60 :
+
+        print ("D")
+    
+    elif 60 > puntaje >=0  :
+        
+        print ("F")
+
+    else:
+
+        print ("Dato incorrecto")
     # Imprima en pantalla al cantidad de ausentes
-
+    print(sumatoria, cantidad_notas, cantidad_ausentes)
 
 def ej4():
     print("Mi primer pasito en data analytics")
@@ -116,7 +230,7 @@ def ej4():
 
     En este ejercicio se lo provee de una lista de temperatuas,
     esa lista de temperatuas corresponde a los valores de temperaturas
-    tomados durante una temperorada del año en Buenos Aires.
+    tomados durante una temporada del año en Buenos Aires.
     Ustede deberá analizar dicha lista para deducir
     en que temporada del año se realizó el muestreo de temperatura.
     La variable con la lista de temperaturas se llama "temp_dataloger"
@@ -137,14 +251,43 @@ def ej4():
     durante la clase (ejemplos_clase)
     '''
 
-    temperatura_max = None      # Aquí debe ir almacenando la temp máxima
-    temperatura_min = None      # Aquí debe ir almacenando la temp mínima
+    temperatura_max = 0     # Aquí debe ir almacenando la temp máxima
+    temperatura_min = 0      # Aquí debe ir almacenando la temp mínima
     temperatura_sumatoria = 0   # Aquí debe ir almacenando la suma de todas las temp
     temperatura_promedio = 0    # Al finalizar el loop deberá aquí alamcenar el promedio
     temperatura_len = 0         # Aquí debe almacenar cuantas temperatuas hay en la lista
 
     # Colocar el bucle aqui......
+    temperatura_min = 100
+    for i in temp_dataloger:
+        
 
+        if i > temperatura_max:
+            temperatura_max = i
+        
+        if i  < temperatura_min :
+            temperatura_min = i
+
+        temperatura_sumatoria += i
+        temperatura_len += 1
+
+    temperatura_promedio = temperatura_sumatoria / temperatura_len
+
+    print (temperatura_max, temperatura_min, temperatura_sumatoria, temperatura_promedio, temperatura_len)       
+
+    from statistics import mean
+    
+    maxima = max(temp_dataloger) 
+    
+    minima = min(temp_dataloger)
+    
+    sumatoria = sum(temp_dataloger)
+    
+    promedio = mean(temp_dataloger)
+    
+    largo = len(temp_dataloger)
+    
+    print(maxima, minima, sumatoria, promedio , largo)
     # Al finalizar el bucle compare si el valor que usted calculó para
     # temperatura_max y temperatura_min coincide con el que podría calcular
     # usando la función "max" y la función "min" de python
@@ -172,6 +315,18 @@ def ej4():
     Referencia:
     https://es.weatherspark.com/y/28981/Clima-promedio-en-Buenos-Aires-Argentina-durante-todo-el-a%C3%B1o
     '''
+    if temperatura_max <= 18 and temperatura_min >= 19:
+        print("Verano")
+
+    if temperatura_max <= 24 and temperatura_min >= 11:
+        print ("Otoño")
+    
+    if temperatura_max <= 14 and temperatura_min >= 8:
+        print("Invierno")
+    
+    if temperatura_max <= 24 and 11 > temperatura_min >= 10 :
+        print("Primavera")
+
 
     # En base a los rangos de temperatura de cada estación,
     # ¿En qué época del año nos encontramos?
@@ -246,6 +401,82 @@ def ej5():
 
   '''
 
+    
+    
+    palabra_1= str(input("Introducir primer palabra: "))
+    palabra_2= str(input("Introducir segunda palabra: "))
+    palabra_3= str(input("Introducir tercer palabra: "))
+    #Creamos la lista
+    lista =  palabra_1.lower() , palabra_2.lower() , palabra_3.lower()
+    #Ponemos todo en minusculas para que luego queden bien ordenadas
+    
+
+    orden = int(input("Elegir 1 para orden alfabético o 2 para ordenar por cantidad  de letras"
+            "o 3 para salir: "))
+
+    #Dejamos selección de opcion por teclado
+    # Si elije 1 o 2 luego de ordenar esas palabras iniciales, entra en un bucle   
+    while True:
+        # Si pongo este IF abajo de todo, no me lo tomaba al selecionar la opción 3
+        if orden == 3:
+            break
+        # Continiamos al proximo paso
+        else:
+            print("Selección incorrecta.")
+            continue
+
+        if orden == 1 :
+
+            lista_orden = sorted(lista)
+            print (lista_orden)
+                
+    
+        elif orden == 2 :
+
+            lista_orden = sorted(lista, key=len , reverse=True)
+
+            print (lista_orden)
+
+        # Solicitamos ingrese por teclado cuantas palabras va a querer ingresar:   
+        cantidad_palabras = 0        
+        cantidad_palabras = int(input("ingrese cantidad de palabras deseadas :"))
+
+        palabras_deseadas = 0
+        lista_palabras = []
+
+        while palabras_deseadas < cantidad_palabras :
+            palabras_deseadas += 1
+            nueva_palabra = str(input("Ingrese nueva palabra: \n"))
+            nueva_palabra_minusc = nueva_palabra.lower()
+            lista_palabras.append(nueva_palabra_minusc)
+        # Una vez ingresadas todas las palabras, solicitamos indique como quiere el orden    
+
+        orden_2 = int(input("1 Para más grande o 2 con mayor cantidad de letras: "))
+                
+        if orden_2 == 1 :
+            print (max(lista_palabras))
+        #2 distintas formas de hacerlo para ver si el resultado es el mismo
+        
+        if orden_2 == 1:
+            mayor_palabra = lista_palabras[0]
+            for i in lista_palabras :
+                if i > mayor_palabra :
+                    mayor_palabra = i
+            print(mayor_palabra)
+            break
+
+        
+
+        if orden_2 == 2 :
+            largo_palabra = lista_palabras[0]   
+
+            for i in lista_palabras :
+                if len(i) > len(largo_palabra):
+                    largo_palabra = i
+            print(largo_palabra)
+            break
+        # Si se elecciona 3 volvemos al inicio
+    
 
 if __name__ == '__main__':
     print("Ejercicios de práctica")
