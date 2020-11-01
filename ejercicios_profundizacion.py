@@ -251,8 +251,8 @@ def ej4():
     durante la clase (ejemplos_clase)
     '''
 
-    temperatura_max = 0     # Aquí debe ir almacenando la temp máxima
-    temperatura_min = 0      # Aquí debe ir almacenando la temp mínima
+    temperatura_max = None     # Aquí debe ir almacenando la temp máxima
+    temperatura_min = None      # Aquí debe ir almacenando la temp mínima
     temperatura_sumatoria = 0   # Aquí debe ir almacenando la suma de todas las temp
     temperatura_promedio = 0    # Al finalizar el loop deberá aquí alamcenar el promedio
     temperatura_len = 0         # Aquí debe almacenar cuantas temperatuas hay en la lista
@@ -262,10 +262,10 @@ def ej4():
     for i in temp_dataloger:
         
 
-        if i > temperatura_max:
+        if  temperatura_max is None or i > temperatura_max:
             temperatura_max = i
         
-        if i  < temperatura_min :
+        if  temperatura_min is None or i  < temperatura_min :
             temperatura_min = i
 
         temperatura_sumatoria += i
