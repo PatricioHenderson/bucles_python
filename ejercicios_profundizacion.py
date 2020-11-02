@@ -402,81 +402,84 @@ def ej5():
   '''
 
     
-    
-    palabra_1= str(input("Introducir primer palabra: "))
-    palabra_2= str(input("Introducir segunda palabra: "))
-    palabra_3= str(input("Introducir tercer palabra: "))
+    while True : 
+       
+        palabra_1= str(input("Introducir primer palabra: "))
+        palabra_2= str(input("Introducir segunda palabra: "))
+        palabra_3= str(input("Introducir tercer palabra: "))
     #Creamos la lista
-    lista =  palabra_1.lower() , palabra_2.lower() , palabra_3.lower()
+        lista =  palabra_1.lower() , palabra_2.lower() , palabra_3.lower()
     #Ponemos todo en minusculas para que luego queden bien ordenadas
     
 
-    orden = int(input("Elegir 1 para orden alfabético o 2 para ordenar por cantidad  de letras"
-            "o 3 para salir: "))
-
+        orden = int(input("Elegir 1 para orden alfabético o 2 para ordenar por cantidad  de letras"
+            "o 3 para salir: "))    
     #Dejamos selección de opcion por teclado
     # Si elije 1 o 2 luego de ordenar esas palabras iniciales, entra en un bucle   
-    while True:
-        # Si pongo este IF abajo de todo, no me lo tomaba al selecionar la opción 3
+        if orden == 1 or orden == 2 :
+            while True:
+        
+        
+
+                if orden == 1 :
+
+                    lista_orden = sorted(lista)
+                    print (lista_orden)
+
+               
+    
+                elif orden == 2 :
+
+                    lista_orden = sorted(lista, key=len , reverse=True)
+
+                    print (lista_orden)
+
+                # Solicitamos ingrese por teclado cuantas palabras va a querer ingresar:   
+                cantidad_palabras = 0        
+                cantidad_palabras = int(input("ingrese cantidad de palabras deseadas :"))
+
+                palabras_deseadas = 0
+                lista_palabras = []
+
+                while palabras_deseadas < cantidad_palabras :
+                    palabras_deseadas += 1
+                    nueva_palabra = str(input("Ingrese nueva palabra: \n"))
+                    nueva_palabra_minusc = nueva_palabra.lower()
+                    lista_palabras.append(nueva_palabra_minusc)
+                    # Una vez ingresadas todas las palabras, solicitamos indique como quiere el orden    
+
+                orden_2 = int(input("1 Para más grande o 2 con mayor cantidad de letras: "))
+                
+                if orden_2 == 1 :
+                    print (max(lista_palabras))
+                #2 distintas formas de hacerlo para ver si el resultado es el mismo
+        
+                if orden_2 == 1:
+                    mayor_palabra = lista_palabras[0]
+                    for i in lista_palabras :
+                        if i > mayor_palabra :
+                            mayor_palabra = i
+                    print(mayor_palabra)
+                break
+
+        
+
+            if orden_2 == 2 :
+                largo_palabra = lista_palabras[0]   
+
+                for i in lista_palabras :
+                    if len(i) > len(largo_palabra):
+                        largo_palabra = i
+                print(largo_palabra)
+            break
+        # Si selecciona 3 se termina el programa.
         if orden == 3:
             break
-        # Continiamos al proximo paso
+        # Si no selecciona 1, 2 o 3 el programa vuelve a iniciar.
         else:
-            print("Selección incorrecta.")
-            continue
-
-        if orden == 1 :
-
-            lista_orden = sorted(lista)
-            print (lista_orden)
-                
-    
-        elif orden == 2 :
-
-            lista_orden = sorted(lista, key=len , reverse=True)
-
-            print (lista_orden)
-
-        # Solicitamos ingrese por teclado cuantas palabras va a querer ingresar:   
-        cantidad_palabras = 0        
-        cantidad_palabras = int(input("ingrese cantidad de palabras deseadas :"))
-
-        palabras_deseadas = 0
-        lista_palabras = []
-
-        while palabras_deseadas < cantidad_palabras :
-            palabras_deseadas += 1
-            nueva_palabra = str(input("Ingrese nueva palabra: \n"))
-            nueva_palabra_minusc = nueva_palabra.lower()
-            lista_palabras.append(nueva_palabra_minusc)
-        # Una vez ingresadas todas las palabras, solicitamos indique como quiere el orden    
-
-        orden_2 = int(input("1 Para más grande o 2 con mayor cantidad de letras: "))
-                
-        if orden_2 == 1 :
-            print (max(lista_palabras))
-        #2 distintas formas de hacerlo para ver si el resultado es el mismo
+                print("Selección incorrecta.")
+                continue   
         
-        if orden_2 == 1:
-            mayor_palabra = lista_palabras[0]
-            for i in lista_palabras :
-                if i > mayor_palabra :
-                    mayor_palabra = i
-            print(mayor_palabra)
-            break
-
-        
-
-        if orden_2 == 2 :
-            largo_palabra = lista_palabras[0]   
-
-            for i in lista_palabras :
-                if len(i) > len(largo_palabra):
-                    largo_palabra = i
-            print(largo_palabra)
-            break
-        # Si se elecciona 3 volvemos al inicio
-    
 
 if __name__ == '__main__':
     print("Ejercicios de práctica")
@@ -484,4 +487,4 @@ if __name__ == '__main__':
     #ej2()
     #ej3()
     #ej4()
-    #ej5()
+    ej5()
